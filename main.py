@@ -6,12 +6,13 @@ import find_donors
 import add_donations
 import blood_inventory
 import make_transfusion
+import add_recipient
 
 def main():
     st.title("Blood Bank Management System")
 
     # Sidebar menu options
-    menu_options = ["Add Donor", "Find Donor", "Retrieve All Donors", "Retrieve All Recipients", "Add Donation", "Make Transfusion", "Blood Inventory"]
+    menu_options = ["Add Donor", "Add Recipient", "Find Donor", "Retrieve All Donors", "Retrieve All Recipients", "Add Donation", "Make Transfusion", "Blood Inventory"]
     selected_option = st.sidebar.selectbox("Select an option", menu_options)
 
     # Execute respective functions based on the selected option
@@ -29,6 +30,8 @@ def main():
         blood_inventory.inventory_page()
     elif selected_option == "Make Transfusion":
         make_transfusion.make_transfusion_page()
+    elif selected_option == "Add Recipient":
+        add_recipient.add_recipient_page()
 
 if __name__ == "__main__":
     main()

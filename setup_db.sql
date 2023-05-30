@@ -19,9 +19,9 @@ CREATE TABLE donors (
 
 CREATE TABLE recipients (
   recipient_id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHARc50) NOT NULL,
+  name VARCHAR(50) NOT NULL,
   blood_group VARCHAR(5) NOT NULL,
-  age INT,
+  date_of_birth DATE,
   gender VARCHAR(10),
   contact_number VARCHAR(15),
   email VARCHAR(50),
@@ -86,4 +86,14 @@ END//
 DELIMITER ;
 
 USE blood_bank_management;
+
+INSERT INTO blood_inventory (blood_group, quantity)
+VALUES ('A+', 0),
+       ('A-', 0),
+       ('B+', 0),
+       ('B-', 0),
+       ('AB+', 0),
+       ('AB-', 0),
+       ('O+', 0),
+       ('O-', 0);
 

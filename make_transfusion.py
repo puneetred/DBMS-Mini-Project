@@ -7,7 +7,7 @@ def make_transfusion_page():
     # Database connection
     connection = mysql.connector.connect(
         host="localhost",
-        user="username",
+        user="user",
         password="password",
         database="blood_bank_management"
     )
@@ -24,11 +24,6 @@ def make_transfusion_page():
         cursor.execute(blood_group_query, (recipient_id,))
         recipient = cursor.fetchone()
         blood_group = recipient[0] if recipient else None
-
-        if blood_group:
-            st.write("Recipient Blood Group:", blood_group)
-        else:
-            st.warning("Recipient ID not found. Please enter a valid Recipient ID.")
 
         submit_button = st.form_submit_button("Make Transfusion")
 
@@ -49,6 +44,8 @@ def make_transfusion_page():
         else:
             st.warning("Required blood not available in the inventory.")
             st.info("Please redirect to 'Find Donors' to search for donors with the required blood group.")
+    elif submit_button and not blood_group:
+        st.warning("Recipient ID not found. Please enter a valid Recipient ID.")
 
     # Close the database connection
     cursor.close()
