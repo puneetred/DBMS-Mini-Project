@@ -1,0 +1,2 @@
+streamlit
+mysql-connector-python
